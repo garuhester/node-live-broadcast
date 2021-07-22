@@ -4,21 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <title>直播</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #videoElement {
+            width: 50%;
+            height: 50%;
+        }
+
+        #videoElement2 {
+            width: 50%;
+            height: 50%;
+        }
+
+        video {
+            float: left;
+        }
+    </style>
 </head>
 
 <body>
     <script src="./flv.min.js"></script>
     <video id="videoElement" width="100%" controls></video>
+    <video id="videoElement2" width="100%" controls></video>
     <script>
         if (flvjs.isSupported()) {
             var videoElement = document.getElementById('videoElement');
             var flvPlayer = flvjs.createPlayer({
                 type: 'flv',
-                url: 'http://localhost:8000/live/1234.flv'
+                url: 'http://localhost:8000/live/a.flv'
             });
             flvPlayer.attachMediaElement(videoElement);
             flvPlayer.load();
             flvPlayer.play();
+            //--------------------------------------------------------
+            var videoElement2 = document.getElementById('videoElement2');
+            var flvPlayer2 = flvjs.createPlayer({
+                type: 'flv',
+                url: 'http://localhost:8000/live/a.flv'
+            });
+            flvPlayer2.attachMediaElement(videoElement2);
+            flvPlayer2.load();
+            flvPlayer2.play();
         }
     </script>
 </body>
